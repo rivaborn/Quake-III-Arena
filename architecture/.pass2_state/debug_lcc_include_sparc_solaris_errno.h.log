@@ -1,0 +1,10 @@
+[Sun Mar  1 20:29:38 EST 2026] START: lcc/include/sparc/solaris/errno.h
+[Sun Mar  1 20:29:38 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/lcc/include/sparc/solaris/errno.h
+[Sun Mar  1 20:29:38 EST 2026] WARNING: no pass1 doc at /mnt/c/Coding/ID/Quake-III-Arena/architecture/lcc/include/sparc/solaris/errno.h.md
+[Sun Mar  1 20:29:38 EST 2026] src_lines=8
+[Sun Mar  1 20:29:38 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 20:29:38 EST 2026] payload built: 35258 chars
+[Sun Mar  1 20:29:38 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 20:29:38 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 20:30:13 EST 2026] claude returned: exit=0 resp_size=3488
+[Sun Mar  1 20:30:13 EST 2026] success

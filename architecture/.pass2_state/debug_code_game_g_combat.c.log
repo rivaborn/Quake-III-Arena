@@ -1,0 +1,11 @@
+[Sun Mar  1 08:01:41 EST 2026] START: code/game/g_combat.c
+[Sun Mar  1 08:01:41 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/game/g_combat.c
+[Sun Mar  1 08:01:41 EST 2026] pass1 loaded: 7742 bytes
+[Sun Mar  1 08:01:41 EST 2026] src_lines=1195
+[Sun Mar  1 08:01:42 EST 2026] source truncated to 500 lines
+[Sun Mar  1 08:01:42 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 08:01:42 EST 2026] payload built: 55141 chars
+[Sun Mar  1 08:01:42 EST 2026] calling claude -p --model sonnet ...
+[Sun Mar  1 08:01:42 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 08:03:24 EST 2026] claude returned: exit=0 resp_size=8966
+[Sun Mar  1 08:03:24 EST 2026] success

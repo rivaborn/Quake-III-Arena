@@ -1,0 +1,11 @@
+[Sun Mar  1 19:11:25 EST 2026] START: code/game/ai_dmq3.c
+[Sun Mar  1 19:11:25 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/game/ai_dmq3.c
+[Sun Mar  1 19:11:25 EST 2026] pass1 loaded: 11202 bytes
+[Sun Mar  1 19:11:25 EST 2026] src_lines=5461
+[Sun Mar  1 19:11:25 EST 2026] source truncated to 500 lines
+[Sun Mar  1 19:11:25 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 19:11:25 EST 2026] payload built: 58179 chars
+[Sun Mar  1 19:11:25 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 19:11:25 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 19:12:41 EST 2026] claude returned: exit=0 resp_size=12414
+[Sun Mar  1 19:12:41 EST 2026] success

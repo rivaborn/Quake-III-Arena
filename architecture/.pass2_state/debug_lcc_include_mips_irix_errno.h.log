@@ -1,0 +1,10 @@
+[Sun Mar  1 20:27:10 EST 2026] START: lcc/include/mips/irix/errno.h
+[Sun Mar  1 20:27:10 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/lcc/include/mips/irix/errno.h
+[Sun Mar  1 20:27:10 EST 2026] WARNING: no pass1 doc at /mnt/c/Coding/ID/Quake-III-Arena/architecture/lcc/include/mips/irix/errno.h.md
+[Sun Mar  1 20:27:10 EST 2026] src_lines=8
+[Sun Mar  1 20:27:10 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 20:27:10 EST 2026] payload built: 35254 chars
+[Sun Mar  1 20:27:10 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 20:27:10 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 20:27:55 EST 2026] claude returned: exit=0 resp_size=3684
+[Sun Mar  1 20:27:55 EST 2026] success

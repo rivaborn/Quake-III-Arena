@@ -1,0 +1,11 @@
+[Sun Mar  1 21:10:24 EST 2026] START: q3radiant/MainFrm.cpp
+[Sun Mar  1 21:10:24 EST 2026] fence=cpp src=/mnt/c/Coding/ID/Quake-III-Arena/q3radiant/MainFrm.cpp
+[Sun Mar  1 21:10:24 EST 2026] WARNING: no pass1 doc at /mnt/c/Coding/ID/Quake-III-Arena/architecture/q3radiant/MainFrm.cpp.md
+[Sun Mar  1 21:10:24 EST 2026] src_lines=5224
+[Sun Mar  1 21:10:24 EST 2026] source truncated to 500 lines
+[Sun Mar  1 21:10:24 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 21:10:24 EST 2026] payload built: 57407 chars
+[Sun Mar  1 21:10:24 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 21:10:24 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 21:11:24 EST 2026] claude returned: exit=0 resp_size=7199
+[Sun Mar  1 21:11:24 EST 2026] success

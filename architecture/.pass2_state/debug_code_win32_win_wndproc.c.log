@@ -1,0 +1,10 @@
+[Sun Mar  1 20:14:03 EST 2026] START: code/win32/win_wndproc.c
+[Sun Mar  1 20:14:03 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/win32/win_wndproc.c
+[Sun Mar  1 20:14:03 EST 2026] pass1 loaded: 5715 bytes
+[Sun Mar  1 20:14:03 EST 2026] src_lines=456
+[Sun Mar  1 20:14:03 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 20:14:03 EST 2026] payload built: 52320 chars
+[Sun Mar  1 20:14:03 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 20:14:03 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 20:15:07 EST 2026] claude returned: exit=0 resp_size=8099
+[Sun Mar  1 20:15:07 EST 2026] success

@@ -1,0 +1,10 @@
+[Sun Mar  1 20:36:25 EST 2026] START: lcc/src/init.c
+[Sun Mar  1 20:36:25 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/lcc/src/init.c
+[Sun Mar  1 20:36:25 EST 2026] WARNING: no pass1 doc at /mnt/c/Coding/ID/Quake-III-Arena/architecture/lcc/src/init.c.md
+[Sun Mar  1 20:36:25 EST 2026] src_lines=318
+[Sun Mar  1 20:36:25 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 20:36:25 EST 2026] payload built: 43232 chars
+[Sun Mar  1 20:36:25 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 20:36:25 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 20:37:38 EST 2026] claude returned: exit=0 resp_size=7415
+[Sun Mar  1 20:37:38 EST 2026] success

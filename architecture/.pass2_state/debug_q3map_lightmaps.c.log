@@ -1,0 +1,10 @@
+[Sun Mar  1 20:56:19 EST 2026] START: q3map/lightmaps.c
+[Sun Mar  1 20:56:19 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/q3map/lightmaps.c
+[Sun Mar  1 20:56:19 EST 2026] WARNING: no pass1 doc at /mnt/c/Coding/ID/Quake-III-Arena/architecture/q3map/lightmaps.c.md
+[Sun Mar  1 20:56:19 EST 2026] src_lines=395
+[Sun Mar  1 20:56:19 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 20:56:19 EST 2026] payload built: 44852 chars
+[Sun Mar  1 20:56:19 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 20:56:19 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 20:56:48 EST 2026] claude returned: exit=0 resp_size=28
+[Sun Mar  1 20:56:49 EST 2026] success

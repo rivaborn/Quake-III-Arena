@@ -1,0 +1,42 @@
+[Sun Mar  1 21:21:06 EST 2026] START: q3radiant/TextureLayout.h
+[Sun Mar  1 21:21:06 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/q3radiant/TextureLayout.h
+[Sun Mar  1 21:21:06 EST 2026] WARNING: no pass1 doc at /mnt/c/Coding/ID/Quake-III-Arena/architecture/q3radiant/TextureLayout.h.md
+[Sun Mar  1 21:21:06 EST 2026] src_lines=69
+[Sun Mar  1 21:21:06 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 21:21:06 EST 2026] payload built: 37388 chars
+[Sun Mar  1 21:21:06 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 21:21:07 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 21:21:29 EST 2026] claude returned: exit=1 resp_size=54
+[Sun Mar  1 21:21:29 EST 2026] retry 1/2
+[Sun Mar  1 21:21:34 EST 2026] attempt 2: sending to claude...
+[Sun Mar  1 21:22:05 EST 2026] claude returned: exit=1 resp_size=54
+[Sun Mar  1 21:22:05 EST 2026] retry 2/2
+[Sun Mar  1 21:22:10 EST 2026] attempt 3: sending to claude...
+[Sun Mar  1 21:22:40 EST 2026] claude returned: exit=1 resp_size=54
+[Sun Mar  1 21:22:40 EST 2026] FAILED after 3 attempts
+[Mon Mar  2 06:53:28 EST 2026] START: q3radiant/TextureLayout.h
+[Mon Mar  2 06:53:28 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/q3radiant/TextureLayout.h
+[Mon Mar  2 06:53:28 EST 2026] WARNING: no pass1 doc at /mnt/c/Coding/ID/Quake-III-Arena/architecture/q3radiant/TextureLayout.h.md
+[Mon Mar  2 06:53:28 EST 2026] src_lines=69
+[Mon Mar  2 06:53:28 EST 2026] context sizes: arch=18186B xref=16986B
+[Mon Mar  2 06:53:28 EST 2026] payload built: 37388 chars
+[Mon Mar  2 06:53:28 EST 2026] calling claude -p --model haiku ...
+[Mon Mar  2 06:53:28 EST 2026] attempt 1: sending to claude...
+[Mon Mar  2 06:53:50 EST 2026] claude returned: exit=1 resp_size=234
+[Mon Mar  2 06:53:50 EST 2026] retry 1/2
+[Mon Mar  2 06:53:55 EST 2026] attempt 2: sending to claude...
+[Mon Mar  2 06:54:21 EST 2026] claude returned: exit=1 resp_size=234
+[Mon Mar  2 06:54:21 EST 2026] retry 2/2
+[Mon Mar  2 06:54:26 EST 2026] attempt 3: sending to claude...
+[Mon Mar  2 06:54:52 EST 2026] claude returned: exit=1 resp_size=234
+[Mon Mar  2 06:54:52 EST 2026] FAILED after 3 attempts
+[Mon Mar  2 08:46:33 EST 2026] START: q3radiant/TextureLayout.h
+[Mon Mar  2 08:46:33 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/q3radiant/TextureLayout.h
+[Mon Mar  2 08:46:33 EST 2026] WARNING: no pass1 doc at /mnt/c/Coding/ID/Quake-III-Arena/architecture/q3radiant/TextureLayout.h.md
+[Mon Mar  2 08:46:33 EST 2026] src_lines=69
+[Mon Mar  2 08:46:33 EST 2026] context sizes: arch=18186B xref=16986B
+[Mon Mar  2 08:46:33 EST 2026] payload built: 37388 chars
+[Mon Mar  2 08:46:33 EST 2026] calling claude -p --model haiku ...
+[Mon Mar  2 08:46:33 EST 2026] attempt 1: sending to claude...
+[Mon Mar  2 08:46:59 EST 2026] claude returned: exit=0 resp_size=28
+[Mon Mar  2 08:46:59 EST 2026] success

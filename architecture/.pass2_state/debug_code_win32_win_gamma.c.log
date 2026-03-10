@@ -1,0 +1,10 @@
+[Sun Mar  1 20:11:15 EST 2026] START: code/win32/win_gamma.c
+[Sun Mar  1 20:11:16 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/win32/win_gamma.c
+[Sun Mar  1 20:11:16 EST 2026] pass1 loaded: 4875 bytes
+[Sun Mar  1 20:11:16 EST 2026] src_lines=214
+[Sun Mar  1 20:11:16 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 20:11:16 EST 2026] payload built: 45774 chars
+[Sun Mar  1 20:11:16 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 20:11:16 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 20:12:25 EST 2026] claude returned: exit=0 resp_size=7067
+[Sun Mar  1 20:12:25 EST 2026] success

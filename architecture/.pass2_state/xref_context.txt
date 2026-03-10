@@ -1,0 +1,300 @@
+# Cross-Reference Index
+
+Auto-generated from per-file architecture docs.
+
+## Function Definition Map
+
+| Function | Defined In |
+|----------|-----------|
+| `AASOuputFile` | `code/bspc/bspc.c` |
+| `AAS_AASLinkEntity` | `code/botlib/be_aas_sample.c` |
+| `AAS_Accelerate` | `code/botlib/be_aas_move.c` |
+| `AAS_AddFaceSideToArea` | `code/bspc/aas_create.h` |
+| `AAS_AddFaceSideToArea / AAS_RemoveFaceFromArea` | `code/bspc/aas_create.c` |
+| `AAS_AgainstLadder` | `code/botlib/be_aas_move.c` |
+| `AAS_AllocAASLink / AAS_DeAllocAASLink` | `code/botlib/be_aas_sample.c` |
+| `AAS_AllocMaxAAS` | `code/bspc/aas_store.c` |
+| `AAS_AllocMaxAAS` | `code/bspc/aas_store.h` |
+| `AAS_AllocTmpArea / AAS_FreeTmpArea` | `code/bspc/aas_create.c` |
+| `AAS_AllocTmpFace / AAS_FreeTmpFace` | `code/bspc/aas_create.c` |
+| `AAS_AllocTmpNode / AAS_FreeTmpNode` | `code/bspc/aas_create.c` |
+| `AAS_AltRoutingFloodCluster_r` | `code/botlib/be_aas_routealt.c` |
+| `AAS_AlternativeRouteGoals` | `code/botlib/be_aas_routealt.c` |
+| `AAS_AlternativeRouteGoals` | `code/botlib/be_aas_routealt.h` |
+| `AAS_AlwaysTriggered_r / AAS_AlwaysTriggered` | `code/bspc/aas_map.c` |
+| `AAS_ApplyFriction` | `code/botlib/be_aas_move.c` |
+| `AAS_AreaCluster` | `code/botlib/be_aas_sample.h` |
+| `AAS_AreaGroundFace / AAS_TraceEndFace` | `code/botlib/be_aas_sample.c` |
+| `AAS_AreaGroundFaceArea` | `code/botlib/be_aas_reach.h` |
+| `AAS_AreaInfo` | `code/botlib/be_aas_sample.c` |
+| `AAS_AreaRouteToGoalArea` | `code/botlib/be_aas_route.c` |
+| `AAS_AreaTravelTime` | `code/botlib/be_aas_route.h` |
+| `AAS_AreaTravelTimeToGoalArea` | `code/botlib/be_aas_route.h` |
+| `AAS_AreaTravelTimeToGoalArea / AAS_AreaReachabilityToGoalArea` | `code/botlib/be_aas_route.c` |
+| `AAS_BBoxAreas` | `code/botlib/be_aas_sample.h` |
+| `AAS_BSPLinkEntity (AASINTERN)` | `code/botlib/be_aas_bsp.h` |
+| `AAS_BestReachableArea` | `code/botlib/be_aas_reach.h` |
+| `AAS_BestReachableEntityArea` | `code/botlib/be_aas_entity.c` |
+| `AAS_BestReachableEntityArea` | `code/botlib/be_aas_entity.h` |
+| `AAS_BestReachableFromJumpPadArea` | `code/botlib/be_aas_reach.h` |
+| `AAS_BoxEntities` | `code/botlib/be_aas_bsp.h` |
+| `AAS_CalcReachAndClusters` | `code/bspc/be_aas_bspc.c` |
+| `AAS_CalcReachAndClusters` | `code/bspc/be_aas_bspc.h` |
+| `AAS_CanMergePlaneFaces` | `code/bspc/aas_facemerging.c` |
+| `AAS_CheckAreaForPossiblePortals` | `code/botlib/be_aas_cluster.c` |
+| `AAS_ClearShownDebugLines` | `code/botlib/be_aas_debug.c` |
+| `AAS_ClearShownDebugLines` | `code/botlib/be_aas_debug.h` |
+| `AAS_ClearShownPolygons` | `code/botlib/be_aas_debug.c` |
+| `AAS_ClientMovementHitBBox` | `code/botlib/be_aas_move.c` |
+| `AAS_ClientMovementHitBBox` | `code/botlib/be_aas_move.h` |
+| `AAS_ClientMovementPrediction` | `code/botlib/be_aas_move.c` |
+| `AAS_ClipToBBox` | `code/botlib/be_aas_move.c` |
+| `AAS_ContinueInit` | `code/botlib/be_aas_main.c` |
+| `AAS_ContinueInitReachability` | `code/botlib/be_aas_reach.c` |
+| `AAS_ContinueInitReachability (AASINTERN)` | `code/botlib/be_aas_reach.h` |
+| `AAS_Create` | `code/bspc/aas_create.c` |
+| `AAS_Create` | `code/bspc/aas_create.h` |
+| `AAS_CreateArea` | `code/bspc/aas_create.c` |
+| `AAS_CreateAreaSettings` | `code/bspc/aas_create.c` |
+| `AAS_CreateAreas` | `code/bspc/aas_create.c` |
+| `AAS_CreateAreas_r` | `code/bspc/aas_create.c` |
+| `AAS_CreateCurveBrushes` | `code/bspc/map_q3.c` |
+| `AAS_CreateMapBrushes` | `code/bspc/aas_map.c` |
+| `AAS_CreateMapBrushes` | `code/bspc/aas_map.h` |
+| `AAS_DData` | `code/botlib/be_aas_file.c` |
+| `AAS_DData` | `code/bspc/aas_file.c` |
+| `AAS_DebugLine` | `code/botlib/be_aas_debug.c` |
+| `AAS_DebugLine` | `code/botlib/be_aas_debug.h` |
+| `AAS_DrawArrow` | `code/botlib/be_aas_debug.h` |
+| `AAS_DrawPermanentCross / AAS_DrawCross` | `code/botlib/be_aas_debug.h` |
+| `AAS_DrawPlaneCross` | `code/botlib/be_aas_debug.h` |
+| `AAS_DropToFloor` | `code/botlib/be_aas_move.c` |
+| `AAS_DumpAASData` | `code/botlib/be_aas_file.c` |
+| `AAS_DumpAASData` | `code/botlib/be_aas_file.h` |
+| `AAS_DumpAASData` | `code/bspc/aas_file.c` |
+| `AAS_DumpBSPData` | `code/botlib/be_aas_bspq3.c` |
+| `AAS_EnableRoutingArea` | `code/botlib/be_aas_route.h` |
+| `AAS_EntityBSPData (AASINTERN)` | `code/botlib/be_aas_entity.h` |
+| `AAS_EntityCollision` | `code/botlib/be_aas_bspq3.c` |
+| `AAS_EntityInfo` | `code/botlib/be_aas_entity.c` |
+| `AAS_EntityInfo` | `code/botlib/be_aas_entity.h` |
+| `AAS_EntitySize` | `code/botlib/be_aas_entity.h` |
+| `AAS_Error` | `code/botlib/be_aas_main.c` |
+| `AAS_Error` | `code/botlib/be_aas_main.h` |
+| `AAS_Error` | `code/bspc/be_aas_bspc.c` |
+| `AAS_ExpandMapBrush` | `code/bspc/aas_map.c` |
+| `AAS_FileInfo` | `code/botlib/be_aas_file.h` |
+| `AAS_FindBestAreaSplitPlane` | `code/bspc/aas_gsubdiv.c` |
+| `AAS_FindClusters` | `code/botlib/be_aas_cluster.c` |
+| `AAS_FindPlane` | `code/bspc/aas_store.h` |
+| `AAS_FlipAreaFaces / AAS_CheckArea` | `code/bspc/aas_create.h` |
+| `AAS_FloodAreas_r / AAS_FloodAreas` | `code/botlib/be_aas_debug.c` |
+| `AAS_FloodClusterAreas_r` | `code/botlib/be_aas_cluster.c` |
+| `AAS_FreeBSPEntities` | `code/botlib/be_aas_bspq3.c` |
+| `AAS_FreeMaxAAS` | `code/bspc/aas_store.c` |
+| `AAS_FreeMaxAAS` | `code/bspc/aas_store.h` |
+| `AAS_FreeOldestCache` | `code/botlib/be_aas_route.c` |
+| `AAS_FreeRoutingCaches` | `code/botlib/be_aas_route.c` |
+| `AAS_FreeRoutingCaches (AASINTERN only)` | `code/botlib/be_aas_route.h` |
+| `AAS_FreeTmpAAS` | `code/bspc/aas_create.c` |
+| `AAS_GapFace` | `code/bspc/aas_create.c` |
+| `AAS_GapFace / AAS_GroundFace` | `code/bspc/aas_create.h` |
+| `AAS_GetAreaRoutingCache` | `code/botlib/be_aas_route.c` |
+| `AAS_GetEdge` | `code/bspc/aas_store.c` |
+| `AAS_GetFace` | `code/bspc/aas_store.c` |
+| `AAS_GetPlane` | `code/bspc/aas_store.c` |
+| `AAS_GetVertex` | `code/bspc/aas_store.c` |
+| `AAS_GravitationalSubdivision` | `code/bspc/aas_gsubdiv.h` |
+| `AAS_GravitationalSubdivision_r / AAS_GravitationalSubdivision` | `code/bspc/aas_gsubdiv.c` |
+| `AAS_GroundArea` | `code/bspc/aas_areamerging.c` |
+| `AAS_GroundFace` | `code/bspc/aas_create.c` |
+| `AAS_HorizontalVelocityForJump` | `code/botlib/be_aas_move.c` |
+| `AAS_HorizontalVelocityForJump` | `code/botlib/be_aas_move.h` |
+| `AAS_InitAASLinkHeap / AAS_FreeAASLinkHeap` | `code/botlib/be_aas_sample.c` |
+| `AAS_InitAlternativeRouting` | `code/botlib/be_aas_routealt.c` |
+| `AAS_InitAlternativeRouting` | `code/botlib/be_aas_routealt.h` |
+| `AAS_InitBotImport` | `code/bspc/be_aas_bspc.c` |
+| `AAS_InitClustering` | `code/botlib/be_aas_cluster.c` |
+| `AAS_InitClustering` | `code/botlib/be_aas_cluster.h` |
+| `AAS_InitMaxAAS` | `code/bspc/aas_store.c` |
+| `AAS_InitReachability` | `code/botlib/be_aas_reach.c` |
+| `AAS_InitReachability (AASINTERN)` | `code/botlib/be_aas_reach.h` |
+| `AAS_InitRouting` | `code/botlib/be_aas_route.c` |
+| `AAS_InitRouting (AASINTERN only)` | `code/botlib/be_aas_route.h` |
+| `AAS_InitSettings` | `code/botlib/be_aas_move.c` |
+| `AAS_InitTmpAAS` | `code/bspc/aas_create.c` |
+| `AAS_Initialized / AAS_Loaded` | `code/botlib/be_aas_main.h` |
+| `AAS_InsideFace / AAS_PointInsideFace` | `code/botlib/be_aas_sample.c` |
+| `AAS_InvalidateEntities (AASINTERN)` | `code/botlib/be_aas_entity.h` |
+| `AAS_JumpReachRunStart` | `code/botlib/be_aas_move.h` |
+| `AAS_KeepEdge` | `code/botlib/be_aas_optimize.c` |
+| `AAS_KeepFace` | `code/botlib/be_aas_optimize.c` |
+| `AAS_LadderSubdivideArea_r` | `code/bspc/aas_gsubdiv.c` |
+| `AAS_LadderSubdivision` | `code/bspc/aas_gsubdiv.h` |
+| `AAS_LoadAASFile` | `code/botlib/be_aas_file.c` |
+| `AAS_LoadAASFile` | `code/botlib/be_aas_file.h` |
+| `AAS_LoadAASFile` | `code/bspc/aas_file.c` |
+| `AAS_LoadAASFile` | `code/bspc/aas_file.h` |
+| `AAS_LoadAASLump` | `code/botlib/be_aas_file.c` |
+| `AAS_LoadAASLump` | `code/bspc/aas_file.c` |
+| `AAS_LoadBSPFile` | `code/botlib/be_aas_bspq3.c` |
+| `AAS_LoadBSPFile (AASINTERN)` | `code/botlib/be_aas_bsp.h` |
+| `AAS_LoadFiles` | `code/botlib/be_aas_main.c` |
+| `AAS_LoadMap` | `code/botlib/be_aas_main.c` |
+| `AAS_LoadMap` | `code/botlib/be_aas_main.h` |
+| `AAS_MeltAreaFaceWindings` | `code/bspc/aas_edgemelting.c` |
+| `AAS_MeltAreaFaceWindings` | `code/bspc/aas_edgemelting.h` |
+| `AAS_MeltFaceWinding` | `code/bspc/aas_edgemelting.c` |
+| `AAS_MeltFaceWindingsOfArea` | `code/bspc/aas_edgemelting.c` |
+| `AAS_MergeAreaFaces` | `code/bspc/aas_facemerging.c` |
+| `AAS_MergeAreaFaces` | `code/bspc/aas_facemerging.h` |
+| `AAS_MergeAreaPlaneFaces` | `code/bspc/aas_facemerging.c` |
+| `AAS_MergeAreaPlaneFaces` | `code/bspc/aas_facemerging.h` |
+| `AAS_MergeAreas` | `code/bspc/aas_areamerging.c` |
+| `AAS_MergeAreas` | `code/bspc/aas_areamerging.h` |
+| `AAS_MergePlaneFaces` | `code/bspc/aas_facemerging.c` |
+| `AAS_ModelFromIndex / AAS_IndexFromModel` | `code/botlib/be_aas_main.c` |
+| `AAS_ModelFromIndex / AAS_IndexFromModel` | `code/botlib/be_aas_main.h` |
+| `AAS_NearestEntity` | `code/botlib/be_aas_entity.c` |
+| `AAS_NearestHideArea` | `code/botlib/be_aas_route.c` |
+| `AAS_NextEntity` | `code/botlib/be_aas_entity.c` |
+| `AAS_NextEntity` | `code/botlib/be_aas_entity.h` |
+| `AAS_NextModelReachability` | `code/botlib/be_aas_reach.h` |
+| `AAS_NumberClusterAreas` | `code/botlib/be_aas_cluster.c` |
+| `AAS_OnGround` | `code/botlib/be_aas_move.c` |
+| `AAS_OnGround` | `code/botlib/be_aas_move.h` |
+| `AAS_Optimize` | `code/botlib/be_aas_optimize.c` |
+| `AAS_Optimize` | `code/botlib/be_aas_optimize.h` |
+| `AAS_OptimizeAlloc` | `code/botlib/be_aas_optimize.c` |
+| `AAS_OptimizeArea` | `code/botlib/be_aas_optimize.c` |
+| `AAS_OptimizeEdge` | `code/botlib/be_aas_optimize.c` |
+| `AAS_OptimizeFace` | `code/botlib/be_aas_optimize.c` |
+| `AAS_OptimizeStore` | `code/botlib/be_aas_optimize.c` |
+| `AAS_OriginOfMoverWithModelNum` | `code/botlib/be_aas_entity.c` |
+| `AAS_ParseBSPEntities` | `code/botlib/be_aas_bspq3.c` |
+| `AAS_PermanentLine` | `code/botlib/be_aas_debug.c` |
+| `AAS_PermanentLine` | `code/botlib/be_aas_debug.h` |
+| `AAS_PointAreaNum` | `code/botlib/be_aas_sample.c` |
+| `AAS_PointAreaNum` | `code/botlib/be_aas_sample.h` |
+| `AAS_PointReachabilityAreaIndex` | `code/botlib/be_aas_sample.c` |
+| `AAS_PositionBrush` | `code/bspc/aas_map.c` |
+| `AAS_PositionFuncRotatingBrush` | `code/bspc/aas_map.c` |
+| `AAS_PredictClientMovement` | `code/botlib/be_aas_move.c` |
+| `AAS_PredictClientMovement` | `code/botlib/be_aas_move.h` |
+| `AAS_PredictRoute` | `code/botlib/be_aas_route.c` |
+| `AAS_PredictRoute` | `code/botlib/be_aas_route.h` |
+| `AAS_PresenceTypeBoundingBox` | `code/botlib/be_aas_sample.c` |
+| `AAS_PresenceTypeBoundingBox` | `code/botlib/be_aas_sample.h` |
+| `AAS_PrintTravelType` | `code/botlib/be_aas_debug.h` |
+| `AAS_ProjectPointOntoVector` | `code/botlib/be_aas_main.c` |
+| `AAS_ProjectPointOntoVector` | `code/botlib/be_aas_main.h` |
+| `AAS_PruneNodes` | `code/bspc/aas_prunenodes.c` |
+| `AAS_PruneNodes` | `code/bspc/aas_prunenodes.h` |
+| `AAS_PruneNodes_r` | `code/bspc/aas_prunenodes.c` |
+| `AAS_Reachability_EqualFloorHeight` | `code/botlib/be_aas_reach.c` |
+| `AAS_Reachability_Jump` | `code/botlib/be_aas_reach.c` |
+| `AAS_Reachability_Ladder` | `code/botlib/be_aas_reach.c` |
+| `AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge` | `code/botlib/be_aas_reach.c` |
+| `AAS_Reachability_Swim` | `code/botlib/be_aas_reach.c` |
+| `AAS_Reachability_Teleport / AAS_Reachability_Elevator / AAS_Reachability_JumpPad / AAS_Reachability_FuncBobbing` | `code/botlib/be_aas_reach.c` |
+| `AAS_RefreshLadderSubdividedTree_r` | `code/bspc/aas_gsubdiv.c` |
+| `AAS_RefreshMergedTree_r` | `code/bspc/aas_areamerging.c` |
+| `AAS_RemoveFaceFromArea` | `code/bspc/aas_create.h` |
+| `AAS_ResetEntityLinks (AASINTERN)` | `code/botlib/be_aas_entity.h` |
+| `AAS_ResetEntityLinks / AAS_InvalidateEntities / AAS_UnlinkInvalidEntities` | `code/botlib/be_aas_entity.c` |
+| `AAS_RocketJumpZVelocity / AAS_BFGJumpZVelocity` | `code/botlib/be_aas_move.h` |
+| `AAS_SetInitialized` | `code/botlib/be_aas_main.h` |
+| `AAS_SetTexinfo` | `code/bspc/aas_map.c` |
+| `AAS_SetViewPortalsAsClusterPortals` | `code/botlib/be_aas_cluster.h` |
+| `AAS_Setup` | `code/botlib/be_aas_main.c` |
+| `AAS_Setup` | `code/botlib/be_aas_main.h` |
+| `AAS_SetupReachabilityHeap / AAS_ShutDownReachabilityHeap / AAS_AllocReachability / AAS_FreeReachability` | `code/botlib/be_aas_reach.c` |
+| `AAS_ShowArea` | `code/botlib/be_aas_debug.c` |
+| `AAS_ShowBoundingBox` | `code/botlib/be_aas_debug.h` |
+| `AAS_ShowFace` | `code/botlib/be_aas_debug.c` |
+| `AAS_ShowFace / AAS_ShowArea / AAS_ShowAreaPolygons` | `code/botlib/be_aas_debug.h` |
+| `AAS_ShowNumReachabilities / AAS_ShowTotals` | `code/bspc/aas_file.c` |
+| `AAS_ShowPolygon` | `code/botlib/be_aas_debug.c` |
+| `AAS_ShowReachability` | `code/botlib/be_aas_debug.c` |
+| `AAS_ShowReachability / AAS_ShowReachableAreas` | `code/botlib/be_aas_debug.h` |
+| `AAS_ShowReachableAreas` | `code/botlib/be_aas_debug.c` |
+| `AAS_Shutdown` | `code/botlib/be_aas_main.c` |
+| `AAS_Shutdown` | `code/botlib/be_aas_main.h` |
+| `AAS_ShutdownAlternativeRouting` | `code/botlib/be_aas_routealt.c` |
+| `AAS_ShutdownAlternativeRouting` | `code/botlib/be_aas_routealt.h` |
+| `AAS_SplitArea` | `code/bspc/aas_gsubdiv.c` |
+| `AAS_SplitFace` | `code/bspc/aas_gsubdiv.c` |
+| `AAS_SplitWinding` | `code/bspc/aas_gsubdiv.c` |
+| `AAS_StartFrame` | `code/botlib/be_aas_main.c` |
+| `AAS_StartFrame` | `code/botlib/be_aas_main.h` |
+| `AAS_StoreArea` | `code/bspc/aas_store.c` |
+| `AAS_StoreFile` | `code/bspc/aas_store.c` |
+| `AAS_StoreFile` | `code/bspc/aas_store.h` |
+| `AAS_StoreReachability` | `code/botlib/be_aas_reach.c` |
+| `AAS_StoreTree_r` | `code/bspc/aas_store.c` |
+| `AAS_StringFromIndex / AAS_IndexFromString` | `code/botlib/be_aas_main.c` |
+| `AAS_SubdivideArea_r` | `code/bspc/aas_gsubdiv.c` |
+| `AAS_SwapAASData` | `code/botlib/be_aas_file.c` |
+| `AAS_SwapAASData` | `code/bspc/aas_file.c` |
+| `AAS_Swimming` | `code/botlib/be_aas_move.c` |
+| `AAS_Swimming` | `code/botlib/be_aas_move.h` |
+| `AAS_TestPortals` | `code/botlib/be_aas_cluster.c` |
+| `AAS_TestSplitPlane` | `code/bspc/aas_gsubdiv.c` |
+| `AAS_Time` | `code/botlib/be_aas_main.h` |
+| `AAS_Trace` | `code/botlib/be_aas_bsp.h` |
+| `AAS_Trace` | `code/botlib/be_aas_bspq3.c` |
+| `AAS_TraceAreas` | `code/botlib/be_aas_sample.c` |
+| `AAS_TraceAreas` | `code/botlib/be_aas_sample.h` |
+| `AAS_TraceClientBBox` | `code/botlib/be_aas_sample.c` |
+| `AAS_TraceClientBBox` | `code/botlib/be_aas_sample.h` |
+| `AAS_TransformPlane` | `code/bspc/aas_map.c` |
+| `AAS_TryMergeFaceAreas` | `code/bspc/aas_areamerging.c` |
+| `AAS_TryMergeFaces` | `code/bspc/aas_facemerging.c` |
+| `AAS_UnlinkFromAreas` | `code/botlib/be_aas_sample.c` |
+| `AAS_UnlinkInvalidEntities (AASINTERN)` | `code/botlib/be_aas_entity.h` |
+| `AAS_UpdateAreaRoutingCache` | `code/botlib/be_aas_route.c` |
+| `AAS_UpdateEntity` | `code/botlib/be_aas_entity.c` |
+| `AAS_UpdateEntity (AASINTERN)` | `code/botlib/be_aas_entity.h` |
+| `AAS_UpdatePortal` | `code/botlib/be_aas_cluster.c` |
+| `AAS_UpdatePortalRoutingCache` | `code/botlib/be_aas_route.c` |
+| `AAS_UpdateStringIndexes` | `code/botlib/be_aas_main.c` |
+| `AAS_ValidEntity` | `code/bspc/aas_map.c` |
+| `AAS_ValueForBSPEpairKey` | `code/botlib/be_aas_bspq3.c` |
+| `AAS_ValueForBSPEpairKey / AAS_VectorForBSPEpairKey / AAS_FloatForBSPEpairKey / AAS_IntForBSPEpairKey` | `code/botlib/be_aas_bsp.h` |
+| `AAS_WeaponJumpZVelocity` | `code/botlib/be_aas_move.c` |
+| `AAS_WriteAASFile` | `code/botlib/be_aas_file.c` |
+| `AAS_WriteAASFile` | `code/botlib/be_aas_file.h` |
+| `AAS_WriteAASFile` | `code/bspc/aas_file.c` |
+| `AAS_WriteAASFile` | `code/bspc/aas_file.h` |
+| `AAS_WriteAASLump` | `code/botlib/be_aas_file.c` |
+| `AAS_WriteAASLump` | `code/bspc/aas_file.c` |
+| `AAS_WriteRouteCache / AAS_ReadRouteCache` | `code/botlib/be_aas_route.c` |
+| `AAS_inPVS / AAS_inPHS` | `code/botlib/be_aas_bsp.h` |
+| `AIEnter_ (family)` | `code/game/ai_dmnet.h` |
+| `AIEnter_ / AINode_ (FSM nodes)` | `code/game/ai_dmnet.c` |
+| `AINode_ (family)` | `code/game/ai_dmnet.h` |
+| `ASE_Free` | `common/aselib.c` |
+| `ASE_Free` | `common/aselib.h` |
+| `ASE_GetNumSurfaces` | `common/aselib.c` |
+| `ASE_GetNumSurfaces` | `common/aselib.h` |
+| `ASE_GetSurfaceAnimation` | `common/aselib.c` |
+| `ASE_GetSurfaceAnimation` | `common/aselib.h` |
+| `ASE_GetSurfaceName` | `common/aselib.c` |
+| `ASE_GetSurfaceName` | `common/aselib.h` |
+| `ASE_GetToken (static)` | `common/aselib.c` |
+| `ASE_Load` | `common/aselib.c` |
+| `ASE_Load` | `common/aselib.h` |
+| `ASE_ParseBracedBlock (static)` | `common/aselib.c` |
+| `ASE_Process (static)` | `common/aselib.c` |
+| `AcquirePath` | `q3radiant/StdAfx.h` |
+| `ActiveXY` | `q3radiant/MainFrm.h` |
+| `AddBrushBevels` | `code/bspc/map.c` |
+| `AddBrushBevels` | `q3map/map.c` |
+| `AddBrushForTerrain` | `q3radiant/terrain.cpp` |
+| `AddBrushForTerrain` | `q3radiant/terrain.h` |
+| `AddEdge` | `q3map/tjunction.c` |
+| `AddIP (static)` | `code/game/g_svcmds.c` |
+| `AddInt / AddFloat / AddString` | `code/game/bg_lib.c` |
+| `AddLump` | `common/bspfile.c` |
+| `AddPatchEdges` | `q3map/tjunction.c` |
+| `AddPointToBounds / ClearBounds` | `code/bspc/l_math.h` |

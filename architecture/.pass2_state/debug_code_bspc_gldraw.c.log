@@ -1,0 +1,10 @@
+[Sun Mar  1 16:12:57 EST 2026] START: code/bspc/gldraw.c
+[Sun Mar  1 16:12:57 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/bspc/gldraw.c
+[Sun Mar  1 16:12:57 EST 2026] pass1 loaded: 5892 bytes
+[Sun Mar  1 16:12:57 EST 2026] src_lines=232
+[Sun Mar  1 16:12:57 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 16:12:57 EST 2026] payload built: 45779 chars
+[Sun Mar  1 16:12:57 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 16:12:57 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 16:13:57 EST 2026] claude returned: exit=0 resp_size=5351
+[Sun Mar  1 16:13:57 EST 2026] success

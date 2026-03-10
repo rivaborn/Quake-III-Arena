@@ -1,0 +1,10 @@
+[Sun Mar  1 20:19:34 EST 2026] START: common/trilib.h
+[Sun Mar  1 20:19:34 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/common/trilib.h
+[Sun Mar  1 20:19:34 EST 2026] pass1 loaded: 1884 bytes
+[Sun Mar  1 20:19:34 EST 2026] src_lines=26
+[Sun Mar  1 20:19:34 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 20:19:34 EST 2026] payload built: 38142 chars
+[Sun Mar  1 20:19:35 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 20:19:35 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 20:20:24 EST 2026] claude returned: exit=0 resp_size=4113
+[Sun Mar  1 20:20:24 EST 2026] success

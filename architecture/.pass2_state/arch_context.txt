@@ -1,0 +1,199 @@
+# Architecture Overview
+
+## Repository Shape
+
+```
+/
+├── code/                        # Runtime engine source tree
+│   ├── botlib/                  # Bot navigation and AI library (AAS, pathfinding, AI pipeline)
+│   ├── bspc/                    # Offline BSP→AAS compiler (standalone tool, no runtime role)
+│   ├── cgame/                   # Client-side game logic VM (QVM/DLL)
+│   ├── client/                  # Client engine layer (connection, input, sound, cinematics)
+│   ├── game/                    # Server-side game logic VM (QVM/DLL)
+│   ├── jpeg-6/                  # Vendored IJG libjpeg-6 (texture loading only)
+│   ├── macosx/                  # macOS platform layer (AppKit, CoreGraphics, GLX)
+│   ├── null/                    # Headless/stub platform layer (porting aid, dedicated server)
+│   ├── q3_ui/                   # Legacy base-Q3A UI VM (QVM/DLL)
+│   ├── qcommon/                 # Shared engine core (collision, VM host, filesystem, networking)
+│   ├── renderer/                # OpenGL renderer DLL (front-end/back-end, shader system)
+│   ├── server/                  # Authoritative server (frame loop, client lifecycle, snapshots)
+│   ├── splines/                 # Spline math utilities
+│   ├── ui/                      # MissionPack (Team Arena) UI VM (QVM/DLL)
+│   ├── unix/                    # Linux/Unix platform layer (X11, OSS, pthreads)
+│   └── win32/                   # Win32 platform layer (WGL, DirectInput, DirectSound, Winsock)
+├── common/                      # Offline tool shared foundation (no runtime engine role)
+├── lcc/                         # LCC C compiler used to compile QVM bytecode
+├── libs/                        # External library stubs (cmdlib, jpeg6, pak) for tools
+├── q3asm/                       # QVM assembler
+├── q3map/                       # BSP map compiler tool
+├── q3radiant/                   # Level editor
+└── ui/                          # Menu/HUD script data files (menudef.h, *.txt)
+```
+
+---
+
+## Major Subsystems
+
+### qcommon (Shared Engine Core)
+- **Purpose:** Integration layer and service backbone for the entire engine. Provides all subsystem infrastructure required by both client and server: collision detection, command/cvar execution, virtual filesystem, network messaging and channel management, VM hosting, and foundational memory and error infrastructure.
+- **Key directories / files:** `code/qcommon/common.c`, `cmd.c`, `cvar.c`, `files.c`, `cm_load.c`, `cm_trace.c`, `cm_test.c`, `cm_patch.c`, `cm_public.h`, `msg.c`, `net_chan.c`, `huffman.c`, `vm.c`, `vm_interpreted.c`, `vm_x86.c`, `vm_ppc.c`, `unzip.c`, `md4.c`, `qcommon.h`
+- **Key responsibilities:**
+  - Zone and hunk memory allocation with dual-ended hunk buffer; `longjmp`-based `Com_Error`
+  - Console variable lifecycle (`CVAR_ROM`, `CVAR_LATCH`, `CVAR_CHEAT`), config-file serialization
+  - Buffered text-based command FIFO, tokenization, handler dispatch
+  - Transparent virtual filesystem merging directory trees and `.pk3` ZIP archives with priority ordering and pure-server validation
+  - Full BSP collision world: map load, AABB/capsule sweep traces, point content tests, PVS cluster queries, area portal connectivity, Bezier patch collision
+  - Bit-level network message serialization, Huffman-compressed bitstreams, delta-compression of `usercmd_t`/`entityState_t`/`playerState_t`
+  - Reliable sequenced UDP channel with fragmentation/reassembly
+  - VM lifecycle management for up to three QVM instances (cgame, game, ui); dispatch to native DLL, x86/PPC JIT, or software interpreter; sandbox enforcement via `dataMask`
+  - MD4 checksums for map and pak verification
+- **Key dependencies (other subsystems):**
+  - Platform layer (`win32/` or `unix/`) for `Sys_*`, `NET_*` socket primitives, `Sys_LoadDll`
+  - `code/client` and `code/server` entry points called from `Com_Frame`
+  - `q_shared.c` / `q_math.c` math utilities used throughout CM and VM code
+
+---
+
+### Renderer
+- **Purpose:** Complete OpenGL-based rendering module implementing a two-phase front-end/back-end pipeline. Loaded as a swappable DLL; sole public entry point is `GetRefAPI`, which returns a `refexport_t` vtable.
+- **Key directories / files:** `code/renderer/tr_local.h`, `tr_public.h`, `tr_init.c`, `tr_main.c`, `tr_backend.c`, `tr_shade.c`, `tr_shader.c`, `tr_bsp.c`, `tr_world.c`, `tr_image.c`, `tr_model.c`, `tr_cmds.c`, `tr_surface.c`, `tr_scene.c`, `tr_curve.c`, `tr_animation.c`, `tr_mesh.c`, `tr_light.c`, `tr_shade_calc.c`, `tr_sky.c`, `tr_shadows.c`, `tr_flares.c`, `tr_marks.c`, `tr_noise.c`, `tr_font.c`, `qgl.h`, `qgl_linked.h`
+- **Key responsibilities:**
+  - BSP tree traversal using PVS cluster data and frustum planes to mark visible leaves and cull surfaces (`tr_world.c`, `tr_main.c`)
+  - Draw-surface collection into a unified sort list keyed by shader, fog, entity, and dlight bits; flush sorted list to back-end command queue
+  - Parse, cache, and optimize multi-pass `.shader` definitions; collapse two-pass combos into single multitexture passes; synthesize implicit fallback shaders
+  - Execute a double-buffered render command queue against OpenGL with a stateful cache minimizing redundant state changes
+  - Convert all surface types (BSP faces, Bézier grids, MD3/MD4 meshes, sprites, rails, beams) into interleaved vertex/index data in the global `tess` (`shaderCommands_t`) buffer
+  - Load, resample, gamma-correct, mipmap, and upload all textures; manage image hash-table cache and skins
+  - Trilinearly sample per-world light grid for entity ambient/directional lighting; distribute dynamic lights through BSP tree
+  - Provide `qgl*`-prefixed wrappers over every OpenGL 1.x entry point — dynamic function pointers on Windows/Linux, compile-time `#define` aliases on statically-linked platforms
+  - Optional SMP: front-end (scene traversal, sort) and back-end (GL command execution) run on separate threads synchronized via `GLimp_FrontEndSleep`/`GLimp_WakeRenderer`
+- **Key dependencies (other subsystems):**
+  - Platform GL layer (`GLimp_*` from `win32/win_glimp.c`, `unix/linux_glimp.c`, or `macosx/macosx_glimp.m`) for window creation, context management, swap buffers, gamma
+  - `code/jpeg-6` (`jload.c`) for JPEG texture loading
+  - `qcommon` (`refimport_t ri`) for `ri.Hunk_Alloc`, `ri.FS_ReadFile`, `ri.CM_ClusterPVS`, cvar/cmd access
+  - `q_shared.c` / `q_math.c` for math utilities
+
+---
+
+### Client
+- **Purpose:** Complete client-side engine layer. Manages the connection state machine, drives the per-frame loop (input → network → render → audio), and bridges the core engine to the cgame VM, UI VM, and sound system.
+- **Key directories / files:** `code/client/client.h`, `cl_main.c`, `cl_cgame.c`, `cl_ui.c`, `cl_parse.c`, `cl_input.c`, `cl_keys.c`, `cl_console.c`, `cl_scrn.c`, `cl_net_chan.c`, `cl_cin.c`, `keys.h`, `snd_dma.c`, `snd_mix.c`, `snd_mem.c`, `snd_adpcm.c`, `snd_wavelet.c`, `snd_local.h`, `snd_public.h`
+- **Key responsibilities:**
+  - Connection state machine from `connect` through challenge/authorize handshake to `active`
+  - Per-frame loop: input processing, packet send/receive, server message parsing, screen update, audio mixing
+  - VM syscall dispatch for cgame (`CL_CgameSystemCalls`) and UI (`CL_UISystemCalls`)
+  - `usercmd_t` assembly from `kbutton_t` state with delta compression and rate limiting
+  - Inbound `svc_*` server message parsing including delta-compressed snapshots and configstrings
+  - `clSnapshot_t` ring buffer management and server-time drift correction
+  - XOR obfuscation of outgoing/incoming game packets using challenge-derived rolling key (`cl_net_chan.c`)
+  - Software-mixed audio pipeline: asset loading, resampling, ADPCM/wavelet/mu-law compression, per-frame DMA mixing
+  - RoQ cinematic player: VQ video decode, YUV→RGB, RLL audio, up to 16 simultaneous handles
+  - Demo recording and playback; server browser with `servercache.dat` persistence
+- **Key dependencies (other subsystems):**
+  - Renderer (`refexport_t re`) for all 2D/3D draw calls
+  - `qcommon` for `MSG_*`, `NET_*`, `FS_*`, `VM_Create/Call/Free`, `Netchan_*`
+  - cgame VM (`cg_public.h`) and UI VM (`ui_public.h`) hosted via `qcommon/vm.c`
+  - Platform DMA layer (`SNDDMA_*` from `win32/win_snd.c` or `unix/linux_snd.c`)
+  - Platform streaming I/O (`Sys_BeginStreamedFile`, etc.)
+  - `code/server` entry points (`SV_Frame`, `SV_Shutdown`) called directly in listen-server mode
+
+---
+
+### Server
+- **Purpose:** Authoritative game simulation host. Owns the server frame loop, all connected client lifecycles, game VM hosting, and routing of all UDP network traffic.
+- **Key directories / files:** `code/server/server.h`, `sv_main.c`, `sv_init.c`, `sv_client.c`, `sv_game.c`, `sv_snapshot.c`, `sv_world.c`, `sv_bot.c`, `sv_net_chan.c`, `sv_ccmds.c`, `sv_rankings.c`
+- **Key responsibilities:**
+  - Authoritative frame simulation via `VM_Call(gvm, GAME_RUN_FRAME, ...)`
+  - Client state machine: `CS_FREE → CS_CONNECTED → CS_PRIMED → CS_ACTIVE → CS_ZOMBIE`
+  - Game VM hosting: serves all VM→engine system calls (collision, entity queries, configstrings, filesystem, cvar, bot calls) through `SV_GameSystemCalls`
+  - Per-client snapshot building: PVS/area culling, delta-encoded entity and playerstate transmission, rate throttling
+  - Sector-tree spatial partitioning for entity link/unlink, area queries, swept-box traces, point-contents tests
+  - UDP packet routing: connectionless packets (status, info, challenge, connect, rcon) and sequenced in-game packets
+  - Bot AI integration: exposes engine services to botlib via `botlib_import_t` vtable; drives per-frame bot AI ticks
+  - Operator administration commands; optional GRank async stat reporting
+- **Key dependencies (other subsystems):**
+  - `qcommon` for `Netchan_*`, `MSG_*`, `CM_*`, `VM_Create/Call/Free`, `FS_*`, `Cvar_*`, `Hunk_*`
+  - `code/game` VM (`gvm`) for all game logic
+  - `code/botlib` via `botlib_export_t` vtable obtained through `GetBotLibAPI`
+
+---
+
+### Game VM (Server-Side)
+- **Purpose:** Server-side game logic module executing as QVM bytecode or native DLL. Owns all authoritative game logic: entity simulation, player physics, combat, item management, team/CTF rules, and the full bot AI stack.
+- **Key directories / files:** `code/game/g_local.h`, `g_main.c`, `g_active.c`, `g_client.c`, `g_combat.c`, `g_weapon.c`, `g_missile.c`, `g_items.c`, `g_team.c`, `g_spawn.c`, `g_mover.c`, `g_trigger.c`, `g_target.c`, `g_bot.c`, `g_utils.c`, `g_mem.c`, `g_syscalls.c`, `ai_main.c`, `ai_dmq3.c`, `ai_dmnet.c`, `ai_team.c`, `ai_chat.c`, `bg_pmove.c`, `bg_slidemove.c`, `bg_misc.c`, `bg_lib.c`, `q_shared.c`, `q_math.c`
+- **Key responsibilities:**
+  - Entity simulation: spawn, think, move, free all server-side entities each frame
+  - Player physics: run `Pmove` authoritatively, apply environmental damage, synchronize `playerState_t` → `entityState_t`
+  - Combat pipeline: `G_Damage`, `G_RadiusDamage`, death sequencing, scoring, item drops
+  - Team and CTF rules: flag lifecycle, obelisk/harvester objectives, team bonuses
+  - Bot AI stack: per-bot FSM (`ai_dmnet.c`), `usercmd_t` synthesis via botlib EA layer, bot lifecycle and interbreeding
+  - Level loading: parse BSP entity strings, dispatch class-specific spawn functions
+  - Client lifecycle: connect, spawn, userinfo, session persistence, disconnect
+  - VM/engine boundary: expose `vmMain` as sole engine entry; bridge engine services through `trap_*` wrappers; share physics via `bg_*` layer
+- **Key dependencies (other subsystems):**
+  - Engine via `trap_*` syscalls: `trap_Trace`, `trap_LinkEntity`, `trap_SetConfigstring`, `trap_BotLib*`
+  - `code/botlib` via `trap_BotLib*` syscall range (opcodes 200–599); never linked directly
+  - `bg_pmove.c` / `bg_misc.c` compiled identically into both game and cgame VMs for deterministic prediction
+  - `q_shared.c` / `q_math.c` for foundational types and math
+
+---
+
+### cgame VM (Client-Side Game)
+- **Purpose:** Client-side game logic VM module. Consumes server-delivered snapshots and user input to produce all client-visible output: 3D scene population, 2D HUD rendering, local entity simulation, and client-side movement prediction.
+- **Key directories / files:** `code/cgame/cg_main.c`, `cg_local.h`, `cg_public.h`, `cg_syscalls.c`, `cg_snapshot.c`, `cg_predict.c`, `cg_view.c`, `cg_draw.c`, `cg_drawtools.c`, `cg_ents.c`, `cg_players.c`, `cg_playerstate.c`, `cg_event.c`, `cg_weapons.c`, `cg_effects.c`, `cg_localents.c`, `cg_marks.c`, `cg_particles.c`, `cg_servercmds.c`, `cg_consolecmds.c`, `cg_scoreboard.c`, `cg_info.c`, `cg_newdraw.c`, `tr_types.h`
+- **Key responsibilities:**
+  - Snapshot consumption: advance double-buffered `snapshot_t` pipeline, detect teleports, fire entity/playerstate events
+  - Client-side `Pmove` prediction on unacknowledged commands; server-vs-client divergence decay
+  - Per-frame packet entity interpolation/extrapolation and type-specific rendering dispatch
+  - Player model/skin/animation loading; per-frame skeletal lerp; powerup/flag/effect attachment
+  - `EV_*` entity event translation into audio, visual, and HUD feedback
+  - 2D HUD composition: status bar, crosshair, team overlays, center prints, scoreboards, lagometer
+  - Fixed-size pools for local entities (512), mark decals, and particles (8192)
+  - Asset precaching during level init
+- **Key dependencies (other subsystems):**
+  - Engine via `trap_*` syscalls: renderer, sound, collision model, snapshot/game state, cvar/console
+  - `bg_pmove.c` / `bg_misc.c` (shared with game VM, must remain deterministically identical)
+  - `q_shared.c` / `q_math.c` for math and string utilities
+  - `ui/menudef.h` for owner-draw IDs and `CG_SHOW_*` visibility flags
+
+---
+
+### UI VMs (q3_ui and ui)
+- **Purpose:** QVM-hosted menu and user interface modules. `code/q3_ui` is the legacy base-Q3A UI; `code/ui` is the MissionPack (Team Arena) data-driven UI using a script-parsed widget framework. Both communicate with the engine exclusively through indexed `trap_*` syscall ABIs.
+- **Key directories / files:** `code/q3_ui/ui_main.c`, `ui_atoms.c`, `ui_qmenu.c`, `ui_local.h`, `ui_syscalls.c`, `ui_gameinfo.c`, `ui_players.c`, `ui_servers2.c`; `code/ui/ui_main.c`, `ui_shared.c`, `ui_shared.h`, `ui_local.h`, `ui_syscalls.c`, `ui_atoms.c`, `ui_players.c`, `ui_gameinfo.c`, `keycodes.h`, `ui_public.h`
+- **Key responsibilities:**
+  - Expose `vmMain` as sole engine-facing entry point; route all UI commands (init, shutdown, key/mouse events, frame refresh, menu activation)
+  - Menu stack management (`UI_PushMenu`/`UI_PopMenu`) with per-frame input dispatch to topmost menu
+  - 2D rendering in virtual 640×480 coordinate space via `trap_R_*` syscalls
+  - Widget framework (buttons, sliders, spin controls, list boxes, text fields, bitmaps, radio buttons); `code/ui`'s version is script-parsed at runtime from `.menu` files
+  - Animated 3D player model previews with skeletal animation and tag attachment
+  - Server browser: LAN/internet query, filtering, sorting, favorites persistence
+  - Single-player campaign flow: level selection, difficulty, postgame scoring, award tracking
+  - `vmCvar_t` batch-registration and per-frame sync; GRank online rankings integration
+  - `ui/menudef.h` provides the shared constant vocabulary (widget types, feeder IDs, owner-draw IDs, `CG_SHOW_*`/`UI_SHOW_*` flags, voice-chat strings) consumed by both UI VMs and cgame
+- **Key dependencies (other subsystems):**
+  - Engine via `trap_*` syscalls: renderer, sound, cvar, filesystem, input, LAN browser
+  - `bg_public.h` types from game module; `tr_types.h` from cgame/renderer
+  - `q_shared.h` base utilities
+  - `ui/menudef.h` (no runtime dependencies; compile-time constants only)
+
+---
+
+### botlib
+- **Purpose:** Self-contained bot library implementing the full navigation (AAS), pathfinding, movement, AI decision-making, and elementary action pipeline for bot clients. Exposed to the engine via a versioned `botlib_export_t` function-pointer table; consumes engine services exclusively through `botlib_import_t`.
+- **Key directories / files:** `code/botlib/be_interface.c`, `be_aas_def.h`, `be_aas_main.c`, `be_aas_file.c`, `be_aas_bspq3.c`, `be_aas_sample.c`, `be_aas_reach.c`, `be_aas_route.c`, `be_aas_cluster.c`, `be_aas_move.c`, `be_aas_entity.c`, `be_aas_optimize.c`, `be_aas_routealt.c`, `be_ea.c`, `be_ai_move.c`, `be_ai_goal.c`, `be_ai_weap.c`, `be_ai_char.c`, `be_ai_chat.c`, `be_ai_weight.c`, `be_ai_gen.c`, `l_memory.c`, `l_script.c`, `l_precomp.c`, `l_libvar.c`, `l_struct.c`, `l_log.c`, `l_crc.c`
+- **Key responsibilities:**
+  - Load, validate, and hold the AAS binary world in the global `aasworld` singleton; write it back and serialize routing caches
+  - Point-to-area mapping, bounding-box sweep traces, entity-to-area linking, PVS/PHS tests
+  - Compute and cache all inter-area reachability links (14+ travel types); Dijkstra-like routing across cluster/portal hierarchy with LRU eviction
+  - Simulate client movement (gravity, friction, acceleration, stepping, liquid) for jump arc and reachability validation
+  - Per-bot goal selection (fuzzy LTG/NBG scoring), movement FSM (travel-type execution), weapon selection (fuzzy inventory scoring), chat (template matching), and personality (characteristic interpolation)
+  - Accumulate per-frame `bot_input_t` and expose it via `EA_GetInput`; `EA_ResetInput` clears for next frame
+  - Internal utility stack: memory (`l_memory.c`), logging, libvar config, lexer, preprocessor, struct serialization, CRC
+  - Post-load geometry compaction (`be_aas_optimize.c`): strips all non-ladder geometry to minimize footprint
+- **Key dependencies (other subsystems):**
+  - `botlib_import_t botimport`: file system, memory, BSP traces, PVS, entity state, debug visualization — all provided by the server at runtime
+  - `code/game` drives per-bot AI calls each frame through `trap_BotLib*` syscall range; never linked directly to botlib symbols
+  - `code/bspc` reuses botlib AAS pipeline code (cluster, reach, optimize) via a stub adapter during offline compilation
+
+---

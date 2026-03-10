@@ -1,0 +1,11 @@
+[Sun Mar  1 20:12:57 EST 2026] START: code/win32/win_qgl.c
+[Sun Mar  1 20:12:57 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/win32/win_qgl.c
+[Sun Mar  1 20:12:57 EST 2026] pass1 loaded: 5934 bytes
+[Sun Mar  1 20:12:57 EST 2026] src_lines=4374
+[Sun Mar  1 20:12:57 EST 2026] source truncated to 500 lines
+[Sun Mar  1 20:12:57 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 20:12:57 EST 2026] payload built: 74423 chars
+[Sun Mar  1 20:12:57 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 20:12:57 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 20:14:03 EST 2026] claude returned: exit=0 resp_size=7660
+[Sun Mar  1 20:14:03 EST 2026] success

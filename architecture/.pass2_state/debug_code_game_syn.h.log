@@ -1,0 +1,10 @@
+[Sun Mar  1 19:23:52 EST 2026] START: code/game/syn.h
+[Sun Mar  1 19:23:52 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/game/syn.h
+[Sun Mar  1 19:23:52 EST 2026] pass1 loaded: 1837 bytes
+[Sun Mar  1 19:23:52 EST 2026] src_lines=34
+[Sun Mar  1 19:23:52 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 19:23:52 EST 2026] payload built: 38319 chars
+[Sun Mar  1 19:23:52 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 19:23:52 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 19:24:36 EST 2026] claude returned: exit=0 resp_size=4404
+[Sun Mar  1 19:24:36 EST 2026] success

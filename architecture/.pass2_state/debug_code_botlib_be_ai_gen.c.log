@@ -1,0 +1,10 @@
+[Sun Mar  1 16:00:45 EST 2026] START: code/botlib/be_ai_gen.c
+[Sun Mar  1 16:00:45 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/botlib/be_ai_gen.c
+[Sun Mar  1 16:00:45 EST 2026] pass1 loaded: 3739 bytes
+[Sun Mar  1 16:00:45 EST 2026] src_lines=134
+[Sun Mar  1 16:00:45 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 16:00:45 EST 2026] payload built: 42941 chars
+[Sun Mar  1 16:00:45 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 16:00:45 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 16:01:36 EST 2026] claude returned: exit=0 resp_size=5414
+[Sun Mar  1 16:01:36 EST 2026] success

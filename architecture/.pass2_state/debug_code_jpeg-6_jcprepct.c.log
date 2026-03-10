@@ -1,0 +1,10 @@
+[Sun Mar  1 19:27:05 EST 2026] START: code/jpeg-6/jcprepct.c
+[Sun Mar  1 19:27:05 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/jpeg-6/jcprepct.c
+[Sun Mar  1 19:27:05 EST 2026] pass1 loaded: 6860 bytes
+[Sun Mar  1 19:27:05 EST 2026] src_lines=371
+[Sun Mar  1 19:27:05 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 19:27:05 EST 2026] payload built: 55120 chars
+[Sun Mar  1 19:27:05 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 19:27:05 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 19:27:58 EST 2026] claude returned: exit=0 resp_size=5143
+[Sun Mar  1 19:27:58 EST 2026] success

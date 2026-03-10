@@ -1,0 +1,10 @@
+[Sun Mar  1 19:37:57 EST 2026] START: code/macosx/CGPrivateAPI.h
+[Sun Mar  1 19:37:57 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/macosx/CGPrivateAPI.h
+[Sun Mar  1 19:37:57 EST 2026] pass1 loaded: 2714 bytes
+[Sun Mar  1 19:37:57 EST 2026] src_lines=185
+[Sun Mar  1 19:37:57 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 19:37:57 EST 2026] payload built: 46680 chars
+[Sun Mar  1 19:37:57 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 19:37:57 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 19:38:50 EST 2026] claude returned: exit=0 resp_size=5250
+[Sun Mar  1 19:38:50 EST 2026] success

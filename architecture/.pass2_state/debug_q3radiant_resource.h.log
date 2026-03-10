@@ -1,0 +1,11 @@
+[Mon Mar  2 08:52:37 EST 2026] START: q3radiant/resource.h
+[Mon Mar  2 08:52:37 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/q3radiant/resource.h
+[Mon Mar  2 08:52:37 EST 2026] WARNING: no pass1 doc at /mnt/c/Coding/ID/Quake-III-Arena/architecture/q3radiant/resource.h.md
+[Mon Mar  2 08:52:37 EST 2026] src_lines=840
+[Mon Mar  2 08:52:37 EST 2026] source truncated to 500 lines
+[Mon Mar  2 08:52:37 EST 2026] context sizes: arch=18186B xref=16986B
+[Mon Mar  2 08:52:37 EST 2026] payload built: 58063 chars
+[Mon Mar  2 08:52:37 EST 2026] calling claude -p --model haiku ...
+[Mon Mar  2 08:52:37 EST 2026] attempt 1: sending to claude...
+[Mon Mar  2 08:53:22 EST 2026] claude returned: exit=0 resp_size=4541
+[Mon Mar  2 08:53:22 EST 2026] success

@@ -1,0 +1,10 @@
+[Sun Mar  1 19:53:47 EST 2026] START: code/qcommon/cm_polylib.h
+[Sun Mar  1 19:53:47 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/qcommon/cm_polylib.h
+[Sun Mar  1 19:53:47 EST 2026] pass1 loaded: 3745 bytes
+[Sun Mar  1 19:53:47 EST 2026] src_lines=68
+[Sun Mar  1 19:53:47 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 19:53:47 EST 2026] payload built: 41302 chars
+[Sun Mar  1 19:53:47 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 19:53:47 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 19:54:42 EST 2026] claude returned: exit=0 resp_size=4690
+[Sun Mar  1 19:54:42 EST 2026] success

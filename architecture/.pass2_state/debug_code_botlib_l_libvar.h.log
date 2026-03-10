@@ -1,0 +1,10 @@
+[Sun Mar  1 16:03:38 EST 2026] START: code/botlib/l_libvar.h
+[Sun Mar  1 16:03:38 EST 2026] fence=c src=/mnt/c/Coding/ID/Quake-III-Arena/code/botlib/l_libvar.h
+[Sun Mar  1 16:03:38 EST 2026] pass1 loaded: 3740 bytes
+[Sun Mar  1 16:03:38 EST 2026] src_lines=63
+[Sun Mar  1 16:03:38 EST 2026] context sizes: arch=18186B xref=16986B
+[Sun Mar  1 16:03:38 EST 2026] payload built: 41317 chars
+[Sun Mar  1 16:03:38 EST 2026] calling claude -p --model haiku ...
+[Sun Mar  1 16:03:38 EST 2026] attempt 1: sending to claude...
+[Sun Mar  1 16:04:35 EST 2026] claude returned: exit=0 resp_size=7320
+[Sun Mar  1 16:04:35 EST 2026] success
